@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Introdução ao JavaScript</title>
+    </head>
+    <body>
+        
+        <h1>Olá, viajante</h1>
+        <h2>Vamos jogar um jogo?</h2>
+        <h3>Pensa num número entre <span id="minNum"></span> e <span id="maxNum"></span></h3>
+        <h3>Eu acho que o numero que pensastes foi: <span id="numero"></span></h3>
+        <hr>
+        <h3>O número é: </h3>
+        <button onclick="maior()">É maior!</button>
+        <button onclick="menor()">É menor!</button>
+        <button onclick="acertou()">É esse!</button>
+        <hr>
+        <h1 id="genio"></h1>
+
+
+
+        <script>
+            var minNum = 10;
+            var maxNum = 90;
+            var tentativa = 50;
+
+            document.getElementById("minNum").innerHTML=minNum;
+            document.getElementById("maxNum").innerHTML=maxNum;
+            document.getElementById("numero").innerHTML=tentativa;
+
+
+            var maior = function()
+            {
+                //o que acontece se o jogador pressionar "É maior..."
+                
+                minNum=tentativa;
+                novaTentativa();
+                
+
+                
+            }
+
+
+            var menor = function()
+            {
+                //o que acontece se o jogador pressionar "É menor..."
+                maxNum=tentativa;
+                novaTentativa();
+               
+                
+            }
+
+            var acertou = function()
+            {
+                //o que acontece se o jogador pressionar "É esse..."
+                document.getElementById("genio").innerHTML="SOU UM GÉNIO!";
+            }
+            function novaTentativa ()
+
+            {
+                tentativa=Math.round ((minNum + maxNum)/2)
+                document.getElementById("numero").innerHTML=tentativa;
+                console.log(minNum)
+                console.log(maxNum)
+                console.log(tentativa)
+            }
+
+        </script>
+
+
+
+    </body>
+</html>
