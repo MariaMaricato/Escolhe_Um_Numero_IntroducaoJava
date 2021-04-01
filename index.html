@@ -4,6 +4,9 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title>Introdução ao JavaScript</title>
+
+        <link rel="stylesheet" type="text/css" href="CSS/CimaOuBaixo.css">
+
     </head>
     <body>
         
@@ -12,18 +15,25 @@
         <h3>Pensa num número entre <span id="minNum"></span> e <span id="maxNum"></span></h3>
         <h3>Eu acho que o numero que pensastes foi: <span id="numero"></span></h3>
         <hr>
-        <h3>O número é: </h3>
-        <button onclick="maior()">É maior!</button>
-        <button onclick="menor()">É menor!</button>
-        <button onclick="acertou()">É esse!</button>
+        <h4>O número é: </h4>
+       
+            <div class="btn-group">
+                <button class="button1" onclick="maior()">É maior!</button>
+                <button onclick="menor()">É menor!</button>
+                <button onclick="acertou()">É esse!</button>
+                <button onclick="deNovo()">Vamos de novo?</button>
+           
+            </div>    
+
+        
         <hr>
-        <h1 id="genio"></h1>
+        <h5 id="genio"></h5>
 
 
 
         <script>
-            var minNum = 10;
-            var maxNum = 90;
+            var minNum = 0;
+            var maxNum = 100;
             var tentativa = 50;
 
             document.getElementById("minNum").innerHTML=minNum;
@@ -33,38 +43,51 @@
 
             var maior = function()
             {
+                
                 //o que acontece se o jogador pressionar "É maior..."
                 
                 minNum=tentativa;
                 novaTentativa();
                 
-
+             
                 
             }
 
 
             var menor = function()
             {
+               
                 //o que acontece se o jogador pressionar "É menor..."
                 maxNum=tentativa;
                 novaTentativa();
+               
                
                 
             }
 
             var acertou = function()
             {
+                
                 //o que acontece se o jogador pressionar "É esse..."
                 document.getElementById("genio").innerHTML="SOU UM GÉNIO!";
+                
+
+                console.log(minNum);
+                console.log(maxNum);
+                console.log(tentativa);
+               
+
             }
             function novaTentativa ()
 
             {
-                tentativa=Math.round ((minNum + maxNum)/2)
+                tentativa=Math.round ((minNum + maxNum)/2);
                 document.getElementById("numero").innerHTML=tentativa;
-                console.log(minNum)
-                console.log(maxNum)
-                console.log(tentativa)
+               
+            }
+            function deNovo()
+            {
+                location.reload ();
             }
 
         </script>
