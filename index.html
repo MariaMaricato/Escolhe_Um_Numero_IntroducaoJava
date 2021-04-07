@@ -15,7 +15,7 @@
         <h3>Pensa num número entre <span id="minNum"></span> e <span id="maxNum"></span></h3>
         <h3>Eu acho que o numero que pensastes foi: <span id="numero"></span></h3>
         <hr>
-        <h4>O número é: </h4>
+        <h4>O teu número é: </h4>
        
             <div class="btn-group">
                 <button class="button1" onclick="maior()">É maior!</button>
@@ -34,11 +34,25 @@
         <script>
             var minNum = 0;
             var maxNum = 100;
-            var tentativa = 50;
+            var tentativa;
+            
 
             document.getElementById("minNum").innerHTML=minNum;
             document.getElementById("maxNum").innerHTML=maxNum;
-            document.getElementById("numero").innerHTML=tentativa;
+
+
+           function novaTentativa ()
+
+            {
+                
+                tentativa=Math.round (minNum + Math.random() * (maxNum-minNum));
+                document.getElementById("numero").innerHTML=tentativa;
+               
+            }
+            
+            novaTentativa ();
+           
+            
 
 
             var maior = function()
@@ -78,13 +92,7 @@
                
 
             }
-            function novaTentativa ()
-
-            {
-                tentativa=Math.round ((minNum + maxNum)/2);
-                document.getElementById("numero").innerHTML=tentativa;
-               
-            }
+            
             function deNovo()
             {
                 location.reload ();
